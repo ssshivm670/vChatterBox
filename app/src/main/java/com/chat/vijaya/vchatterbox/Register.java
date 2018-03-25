@@ -32,10 +32,10 @@ public class Register extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
 
-        username = (EditText)findViewById(R.id.username);
-        password = (EditText)findViewById(R.id.password);
-        registerButton = (Button)findViewById(R.id.registerButton);
-        login = (TextView)findViewById(R.id.login);
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
+        registerButton = findViewById(R.id.registerButton);
+        login = findViewById(R.id.login);
 
         Firebase.setAndroidContext(this);
 
@@ -72,12 +72,12 @@ public class Register extends AppCompatActivity {
                     pd.setMessage("Loading...");
                     pd.show();
 
-                    String url = "https://vchat-bbd95.firebaseio.com/users.json";
+                    String url = "@DataStore/FireBaseUserJSON";
 
                     StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
                         @Override
                         public void onResponse(String s) {
-                            Firebase reference = new Firebase("https://vchat-bbd95.firebaseio.com/users");
+                            Firebase reference = new Firebase("@DataStore/FireBaseUser");
 
                             if(s.equals("null")) {
                                 reference.child(user).child("password").setValue(pass);
