@@ -31,10 +31,10 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        registerUser = (TextView)findViewById(R.id.register);
-        username = (EditText)findViewById(R.id.username);
-        password = (EditText)findViewById(R.id.password);
-        loginButton = (Button)findViewById(R.id.loginButton);
+        registerUser = findViewById(R.id.register);
+        username = findViewById(R.id.username);
+        password = findViewById(R.id.password);
+        loginButton = findViewById(R.id.loginButton);
 
         registerUser.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -56,7 +56,7 @@ public class Login extends AppCompatActivity {
                     password.setError("can't be blank");
                 }
                 else{
-                    String url = "https://vchat-bbd95.firebaseio.com/users.json";
+                    String url = FireBaseConfig.FireBaseUserJSON;
                     final ProgressDialog pd = new ProgressDialog(Login.this);
                     pd.setMessage("Loading...");
                     pd.show();

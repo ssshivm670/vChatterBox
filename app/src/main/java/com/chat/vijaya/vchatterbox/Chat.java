@@ -34,15 +34,15 @@ public class Chat extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat);
 
-        layout = (LinearLayout) findViewById(R.id.layout1);
-        layout_2 = (RelativeLayout)findViewById(R.id.layout2);
-        sendButton = (ImageView)findViewById(R.id.sendButton);
-        messageArea = (EditText)findViewById(R.id.messageArea);
-        scrollView = (ScrollView)findViewById(R.id.scrollView);
+        layout = findViewById(R.id.layout1);
+        layout_2 = findViewById(R.id.layout2);
+        sendButton = findViewById(R.id.sendButton);
+        messageArea =findViewById(R.id.messageArea);
+        scrollView = findViewById(R.id.scrollView);
 
         Firebase.setAndroidContext(this);
-        reference1 = new Firebase("https://vchat-bbd95.firebaseio.com/messages/" + UserDetails.username + "_" + UserDetails.chatWith);
-        reference2 = new Firebase("https://vchat-bbd95.firebaseio.com/messages/" + UserDetails.chatWith + "_" + UserDetails.username);
+        reference1 = new Firebase(FireBaseConfig.FireBaseMessage+ UserDetails.username + "_" + UserDetails.chatWith);
+        reference2 = new Firebase(FireBaseConfig.FireBaseMessage + UserDetails.chatWith + "_" + UserDetails.username);
 
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override

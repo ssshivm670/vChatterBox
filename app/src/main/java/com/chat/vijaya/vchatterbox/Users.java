@@ -44,7 +44,7 @@ public class Users extends AppCompatActivity {
         pd.setMessage("Loading...");
         pd.show();
 
-        String url = "https://vchat-bbd95.firebaseio.com/users.json";
+        String url = FireBaseConfig.FireBaseUserJSON;
 
         StringRequest request = new StringRequest(Request.Method.GET, url, new Response.Listener<String>(){
             @Override
